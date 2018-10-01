@@ -1,0 +1,28 @@
+{
+    "name": "oxygencms/menus",
+    "description": "Oxy menus",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Pavlov",
+            "email": "pavlovp@icloud.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Oxygencms\\Menus\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Oxygencms\\Menus\\MenuServiceProvider"
+            ],
+            "aliases": {
+                "Menu": "Oxygencms\\Menus\\Facades\\Menu"
+            }
+        }
+    }
+}
