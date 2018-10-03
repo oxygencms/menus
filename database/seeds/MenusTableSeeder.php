@@ -1,5 +1,7 @@
 <?php
 
+namespace Oxygencms\Menus\Database\Seeds;
+
 use Oxygencms\Menus\Models\Menu;
 use Illuminate\Database\Seeder;
 

@@ -12,7 +12,8 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Oxygencms\\Menus\\": "src/"
+            "Oxygencms\\Menus\\": "src/",
+            "Oxygencms\\Menus\\Database\\Seeds\\": "database/seeds/"
         }
     },
     "extra": {
