@@ -17,7 +17,7 @@ class LinkPolicy extends BasePolicy
      */
     public function index(User $user)
     {
-        if ($user->can('see_links') || $user->can('manage_links')) {
+        if ($user->can('view_links') || $user->can('manage_links')) {
             return true;
         }
 

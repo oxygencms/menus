@@ -17,7 +17,7 @@ class MenuPolicy extends BasePolicy
      */
     public function index(User $user)
     {
-        if ($user->can('see_menus') || $user->can('manage_menus')) {
+        if ($user->can('view_menus') || $user->can('manage_menus')) {
             return true;
         }
 
@@ -47,7 +47,7 @@ class MenuPolicy extends BasePolicy
      */
     public function edit(User $user)
     {
-        if ($user->can('see_links')) {
+        if ($user->can('view_links')) {
             return true;
         }
 
