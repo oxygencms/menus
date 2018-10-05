@@ -1,7 +1,7 @@
 <?php
 
-use Oxygencms\Menus\Models\Menu;
 use Illuminate\Database\Seeder;
+use Oxygencms\Menus\Models\Menu;
 
 class MenusTableSeeder extends Seeder
 {

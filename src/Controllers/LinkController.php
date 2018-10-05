@@ -4,10 +4,10 @@ namespace Oxygencms\Menus\Controllers;
 
 use Oxygencms\Menus\Models\Link;
 use Oxygencms\Menus\Models\Menu;
-use App\Http\Controllers\Controller;
-use Oxygencms\Menus\Requests\AdminLinkRequest as LinkRequest;
+use Oxygencms\Menus\Requests\LinkRequest;
+use Oxygencms\Core\Controllers\Controller;
 
-class AdminLinkController extends Controller
+class LinkController extends Controller
 {
     /**
      * Show the form for creating a new resource.

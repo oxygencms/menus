@@ -4,10 +4,10 @@ namespace Oxygencms\Menus\Controllers;
 
 use JavaScript;
 use Oxygencms\Menus\Models\Menu;
-use App\Http\Controllers\Controller;
-use Oxygencms\Menus\Requests\AdminMenuRequest as MenuRequest;
+use Oxygencms\Menus\Requests\MenuRequest;
+use Oxygencms\Core\Controllers\Controller;
 
-class AdminMenuController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.

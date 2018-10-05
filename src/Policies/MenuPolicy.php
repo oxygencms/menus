@@ -2,7 +2,7 @@
 
 namespace Oxygencms\Menus\Policies;
 
-use App\Models\User;
+use Oxygencms\Users\Models\User;
 use Oxygencms\Core\Policies\BasePolicy;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -27,7 +27,7 @@ class MenuPolicy extends BasePolicy
     /**
      * Determine whether the user can create menus.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Oxygencms\Users\Models\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -42,7 +42,7 @@ class MenuPolicy extends BasePolicy
     /**
      * Determine whether the user can edit the menu.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Oxygencms\Users\Models\User  $user
      * @return mixed
      */
     public function edit(User $user)
@@ -61,7 +61,7 @@ class MenuPolicy extends BasePolicy
     /**
      * Determine whether the user can update the menu.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Oxygencms\Users\Models\User  $user
      * @return mixed
      */
     public function update(User $user)
@@ -76,7 +76,7 @@ class MenuPolicy extends BasePolicy
     /**
      * Determine whether the user can delete the menu.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Oxygencms\Users\Models\User  $user
      * @return mixed
      */
     public function delete(User $user)

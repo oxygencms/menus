@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminLinkRequest extends FormRequest
+class LinkRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

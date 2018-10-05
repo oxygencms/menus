@@ -2,7 +2,7 @@
 
 namespace Oxygencms\Menus\Policies;
 
-use App\Models\User;
+use Oxygencms\Users\Models\User;
 use Oxygencms\Core\Policies\BasePolicy;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -27,7 +27,7 @@ class LinkPolicy extends BasePolicy
     /**
      * Determine whether the user can create links.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Oxygencms\Users\Models\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -42,7 +42,7 @@ class LinkPolicy extends BasePolicy
     /**
      * Determine whether the user can update the link.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Oxygencms\Users\Models\User  $user
      * @return mixed
      */
     public function update(User $user)
@@ -57,7 +57,7 @@ class LinkPolicy extends BasePolicy
     /**
      * Determine whether the user can delete the link.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Oxygencms\Users\Models\User  $user
      * @return mixed
      */
     public function delete(User $user)

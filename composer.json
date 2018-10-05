@@ -1,11 +1,15 @@
 {
     "name": "oxygencms/menus",
-    "description": "Oxy menus",
+    "description": "Oxygen CMS menus package.",
     "license": "MIT",
     "authors": [
         {
             "name": "Pavel Pavlov",
             "email": "pavlovp@icloud.com"
+        },
+        {
+            "name": "Martin Blagoev",
+            "email": "mb.reppair@gmail.com"
         }
     ],
     "minimum-stability": "dev",
