@@ -35,7 +35,7 @@ class LinkRequest extends FormRequest
         ];
 
         // specify locales instead of using * wild card, useful in views
-        foreach (config('app.locales') as $locale => $language) {
+        foreach (config('oxygen.locales') as $locale => $language) {
             $translatable["text.$locale"]  = 'required|string';
             $translatable["title.$locale"] = 'nullable|string';
         }
