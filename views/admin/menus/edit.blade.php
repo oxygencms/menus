@@ -10,7 +10,7 @@
 
             <div class="ml-auto d-flex justify-content-end">
                 <div>
-                    <a href="{{ route('menu.link.create', $menu) }}" class="btn">
+                    <a href="{{ route('admin.menu.link.create', $menu) }}" class="btn">
                         Add Link <i class="fas fa-plus"></i>
                     </a>
                 </div>
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <form action="{{ route('menu.update', $menu) }}" method="POST" class="mb-4">
+    <form action="{{ route('admin.menu.update', $menu) }}" method="POST" class="mb-4">
         {!! csrf_field() !!}
         {!! method_field('patch') !!}
 

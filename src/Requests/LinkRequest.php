@@ -72,9 +72,9 @@ class LinkRequest extends FormRequest
             'attrs' => 'nullable|string|json',
             'parent_class' => 'nullable|string',
             'class' => 'nullable|string',
-            'target_blank' => 'sometimes|boolean',
             'online' => 'sometimes|boolean',
             'order_id' => 'sometimes|numeric',
+            'blank' => 'sometimes|boolean'
         ];
 
         $rules = array_merge($translatable + $rules);

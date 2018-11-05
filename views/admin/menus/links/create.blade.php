@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <form action="{{ route('menu.link.store', $menu) }}" method="POST">
+    <form action="{{ route('admin.menu.link.store', $menu) }}" method="POST">
         @csrf
 
         @include('oxygencms::admin.menus.links._form-fields')

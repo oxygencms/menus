@@ -46,7 +46,7 @@ class LinkController extends Controller
 
         notification("$link->model_name successfully created.");
 
-        return redirect()->route('menu.edit', $menu);
+        return redirect()->route('admin.menu.edit', $menu);
     }
 
     /**
@@ -83,7 +83,7 @@ class LinkController extends Controller
 
         notification("$link->model_name successfully updated.");
 
-        return redirect()->route('menu.edit', $menu);
+        return redirect()->route('admin.menu.edit', $menu);
     }
 
     /**
@@ -96,12 +96,12 @@ class LinkController extends Controller
      * @throws \Exception
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function destroy(Menu $menu, Link $link)
+    public function destroy(Link $link)
     {
         $this->authorize('delete', Link::class);
 
         $link->delete();
 
-        return jsonNotification($link->model_name . ' successfully deleted.');
+        return jsonNotification($link->model_name . ' successfuly deleted.');
     }
 }

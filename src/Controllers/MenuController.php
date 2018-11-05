@@ -55,7 +55,7 @@ class MenuController extends Controller
 
         notification("$menu->model_name successfully created.");
 
-        return redirect()->route('menu.index');
+        return redirect()->route('admin.menu.index');
     }
 
     /**

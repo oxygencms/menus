@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <form action="{{ route('menu.link.update', [$menu, $link]) }}" method="POST">
+    <form action="{{ route('admin.menu.link.update', [$menu, $link]) }}" method="POST">
         {!! csrf_field() !!}
         {!! method_field('patch') !!}
 

@@ -137,19 +137,20 @@
     </div>
 </div>
 
+<!-- blank tab -->
 <div class="form-control mb-3">
     <div class="custom-control custom-checkbox">
-        <input type="hidden" name="_blank" value="0">
+        <input type="hidden" name="blank" value="0">
         <input type="checkbox"
                class="custom-control-input"
-               name="_blank"
+               name="blank"
                value="1"
-               id="_blank"
-               {{ old('_blank', optional($link)->_blank) == 1 ? 'checked' : null }}
+               id="blank"
+               {{ old('blank', optional($link)->blank) == 1 ? 'checked' : null }}
         >
         <label class="custom-control-label"
                style="width: 100%;"
-               for="_blank"
+               for="blank"
         >
             Open link in new tab
         </label>

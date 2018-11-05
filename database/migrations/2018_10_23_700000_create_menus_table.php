@@ -41,7 +41,7 @@ class CreateMenusTable extends Migration
             $table->json('parent_attrs')->nullable();
             $table->string('class')->nullable();
             $table->string('parent_class')->nullable();
-            $table->boolean('_blank')->default(0);
+            $table->boolean('blank')->default(0);
             $table->boolean('active')->default(1);
             $table->integer('order_id')->nullable();
 
