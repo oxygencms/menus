@@ -46,7 +46,7 @@ class LinkRequest extends FormRequest
                 'required_without_all:url,action',
                 'string',
                 new RouteExists,
-                new EmptyWhen('url', 'action')
+                new EmptyWhen('url', 'action'),
             ],
 
             'url' => [
@@ -55,7 +55,7 @@ class LinkRequest extends FormRequest
                 'string',
                 'URL',
                 'active_url',
-                new EmptyWhen('route', 'action')
+                new EmptyWhen('route', 'action'),
             ],
 
             'action' => [
@@ -74,7 +74,7 @@ class LinkRequest extends FormRequest
             'class' => 'nullable|string',
             'online' => 'sometimes|boolean',
             'order_id' => 'sometimes|numeric',
-            'blank' => 'sometimes|boolean'
+            'blank' => 'sometimes|boolean',
         ];
 
         $rules = array_merge($translatable + $rules);
@@ -92,7 +92,7 @@ class LinkRequest extends FormRequest
         $rules = ['json', new HasRequiredParameters($route)];
 
         // nullable if the route does not require any params or if setting a url
-        if ($route && !$route->parameterNames || !$route && $this->has('url')) {
+        if ($route && ! $route->parameterNames || ! $route && $this->has('url')) {
             $rules = array_prepend($rules, 'nullable');
         }
 
@@ -109,7 +109,15 @@ class LinkRequest extends FormRequest
         $route = Route::getRoutes()->getByName($search);
 
         if ( ! $route) {
-            $action = app()->getNamespace() . "Http\\Controllers\\" . $search;
+            $namespace = app()->getNamespace() . "Http\\Controllers\\";
+
+            if (str_contains($search, 'PageController')) {
+                class_exists($namespace . "PageController")
+                    ? $action = $namespace . $search
+                    : $action = "Oxygencms\\Pages\\Controllers\\" . $search;
+            } else {
+                $action = $namespace . $search;
+            }
 
             $route = Route::getRoutes()->getByAction($action);
         }

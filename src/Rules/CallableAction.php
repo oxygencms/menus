@@ -21,15 +21,16 @@ class CallableAction implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
-     * @param  string  $value
+     * @param  string $attribute
+     * @param  string $value
+     *
      * @return bool
      */
     public function passes($attribute, $value)
     {
         $value = trim($value);
 
-        if (!str_contains($value, '@') || substr_count($value, '@') != 1) {
+        if ( ! str_contains($value, '@') || substr_count($value, '@') != 1) {
             $this->message = "The $attribute format is wrong.";
             return false;
         }
@@ -38,14 +39,16 @@ class CallableAction implements Rule
 
         $namespace = app()->getNamespace() . "Http\\Controllers\\";
 
-        if (!class_exists($namespace . $class_name)) {
-            $this->message = "Class '". $namespace.$class_name ."' not found.";
-            return false;
-        }
+        if ( ! $class_name == 'PageController') {
+            if ( ! class_exists($namespace . $class_name)) {
+                $this->message = "Class '" . $namespace . $class_name . "' not found.";
+                return false;
+            }
 
-        if (!is_callable([$namespace.$class_name, $method])) {
-            $this->message = "Method @$method is not callable.";
-            return false;
+            if ( ! is_callable([$namespace . $class_name, $method])) {
+                $this->message = "Method @$method is not callable.";
+                return false;
+            }
         }
 
         return true;

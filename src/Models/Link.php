@@ -73,7 +73,19 @@ class Link extends Model implements RouteNamePrefixes
         }
 
         if ($this->action) {
-            return action($this->action, $this->params ?: []);
+            if ($this->action == 'PageController@show') {
+                return action([config('pages.page_controller'), 'show'], $this->params ?: []);
+            }
+
+            if ($this->action == 'HomeController@show') {
+                return action([config('pages.home_controller'), 'show'], $this->params ?: []);
+            }
+
+            $parts = explode('@', $this->action);
+
+            $action = [app()->getNamespace() . 'Http\\Controllers\\' . $parts[0], $parts[1]];
+
+            return action($action, $this->params ?: []);
         }
 
         return url($this->url, $this->params);
