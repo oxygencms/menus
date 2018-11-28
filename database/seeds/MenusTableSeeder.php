@@ -46,7 +46,7 @@ class MenusTableSeeder extends Seeder
                 'links' => [
                     [
                         'text' => ['en' => 'About us',],
-                        'action' => 'page.show',
+                        'route' => 'page.show',
                         'params' => ['page_slug' => 'about-us'],
                         'class' => 'nav-link',
                     ],
