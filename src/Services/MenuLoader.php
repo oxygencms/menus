@@ -22,7 +22,14 @@ class MenuLoader
      */
     public function render(string $menu_name)
     {
-        return $this->cache()->findOrFail($menu_name)->build()->render();
+        try {
+            $menu = $this->cache()->findOrFail($menu_name)->build()->render();
+        } catch (Exception $e) {
+//            $menu = "<h1>{$e->getMessage()}</h1>";
+            $menu = null;
+        }
+
+        return $menu;
     }
 
     /**
