@@ -18,22 +18,26 @@
         </div>
     </div>
 
-    <table-component :data="models">
-        {{--<table-column show="online" label="Online" :filterable="false">--}}
-            {{--<template slot-scope="row">--}}
-                {{--<input type="checkbox"--}}
-                       {{--@click.prevent="toggleActiveAttribute(row)"--}}
-                       {{--:checked="row.active"--}}
-                {{-->--}}
-            {{--</template>--}}
-        {{--</table-column>--}}
-        <table-column show="name" label="Name"></table-column>
-        <table-column label="Actions" :filterable="false" :sortable="false">
-            <template slot-scope="row">
-                <a :href="row.edit_url">edit</a>
-                <a href="#" @click.prevent="confirmAndDestroy(row)">delete</a>
-            </template>
-        </table-column>
-    </table-component>
+    <vue-good-table
+            :columns="[
+                {label: 'Name', field: 'name'},
+                {label: 'Actions', field: 'actions', width: '100px', globalSearchDisabled: false, sortable: false},
+            ]"
+            :rows="models"
+            :search-options="{enabled: true}"
+            :pagination-options="{enabled: true}"
+    >
+        <template slot="table-row" slot-scope="props">
+            <span v-if="props.column.label === 'Actions'" class="action-links">
+                <a :href="props.row.edit_url" title="Edit">edit</a>
+
+                <a @click.prevent="confirmAndDestroy(props.row)" href="#" title="Delete">
+                    delete
+                </a>
+            </span>
+
+            <span v-else v-text="props.formattedRow[props.column.field]"></span>
+        </template>
+    </vue-good-table>
 
 @endsection

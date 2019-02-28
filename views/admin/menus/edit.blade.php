@@ -33,15 +33,38 @@
         <h2>Links</h2>
 
         <!-- links of the menu -->
-        <table-component :data="models">
-            <table-column show="text.en" label="Text"></table-column>
-            <table-column label="Actions" :filterable="false" :sortable="false">
-                <template slot-scope="row">
-                    <a :href="row.edit_url">Edit</a>
-                    <a href="#" @click.prevent="confirmAndDestroy(row)">Delete</a>
-                </template>
-            </table-column>
-        </table-component>
+
+        <vue-good-table
+                :columns="[
+                    {label: 'Text', field: `text.${locale}`},
+                    {label: 'Actions', field: 'actions', width: '100px', globalSearchDisabled: false, sortable: false},
+                ]"
+                :rows="models"
+                :search-options="{enabled: true}"
+                :pagination-options="{enabled: true}"
+        >
+            <template slot="table-row" slot-scope="props">
+            <span v-if="props.column.label === 'Actions'" class="action-links">
+                <a :href="props.row.edit_url" title="Edit">edit</a>
+
+                <a @click.prevent="confirmAndDestroy(props.row)" href="#" title="Delete">
+                    delete
+                </a>
+            </span>
+
+                <span v-else v-text="props.formattedRow[props.column.field]"></span>
+            </template>
+        </vue-good-table>
+
+        {{--<table-component :data="models">--}}
+            {{--<table-column show="text.en" label="Text"></table-column>--}}
+            {{--<table-column label="Actions" :filterable="false" :sortable="false">--}}
+                {{--<template slot-scope="row">--}}
+                    {{--<a :href="row.edit_url">Edit</a>--}}
+                    {{--<a href="#" @click.prevent="confirmAndDestroy(row)">Delete</a>--}}
+                {{--</template>--}}
+            {{--</table-column>--}}
+        {{--</table-component>--}}
     @endif
 
 @endsection
