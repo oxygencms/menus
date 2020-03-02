@@ -25,12 +25,10 @@ class MenuRequest extends FormRequest
     {
         $key = $this->isMethod('POST') ? '' : $this->menu->id;
 
-        $rules = [
+        return [
             'name' => "required|string|unique:menus,name,$key",
             'class' => 'nullable|string',
             'attrs' => 'nullable|string|json',
         ];
-
-        return $rules;
     }
 }

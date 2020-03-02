@@ -14,7 +14,7 @@ class LinkController extends Controller
      *
      * @param Menu $menu
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create(Menu $menu)
@@ -35,7 +35,7 @@ class LinkController extends Controller
      * @param Menu        $menu
      * @param LinkRequest $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Menu $menu, LinkRequest $request)
@@ -55,7 +55,7 @@ class LinkController extends Controller
      * @param Menu $menu
      * @param Link $link
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Menu $menu, Link $link)
@@ -72,7 +72,7 @@ class LinkController extends Controller
      * @param Link        $link
      * @param LinkRequest $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Menu $menu, Link $link, LinkRequest $request)
@@ -89,10 +89,9 @@ class LinkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Menu $menu
      * @param Link $link
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

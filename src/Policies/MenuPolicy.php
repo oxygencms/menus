@@ -27,7 +27,7 @@ class MenuPolicy extends BasePolicy
     /**
      * Determine whether the user can create menus.
      *
-     * @param  \Oxygencms\Users\Models\User  $user
+     * @param User $user
      * @return mixed
      */
     public function create(User $user)
@@ -42,7 +42,7 @@ class MenuPolicy extends BasePolicy
     /**
      * Determine whether the user can edit the menu.
      *
-     * @param  \Oxygencms\Users\Models\User  $user
+     * @param User $user
      * @return mixed
      */
     public function edit(User $user)
@@ -61,7 +61,7 @@ class MenuPolicy extends BasePolicy
     /**
      * Determine whether the user can update the menu.
      *
-     * @param  \Oxygencms\Users\Models\User  $user
+     * @param User $user
      * @return mixed
      */
     public function update(User $user)
@@ -76,7 +76,7 @@ class MenuPolicy extends BasePolicy
     /**
      * Determine whether the user can delete the menu.
      *
-     * @param  \Oxygencms\Users\Models\User  $user
+     * @param User $user
      * @return mixed
      */
     public function delete(User $user)

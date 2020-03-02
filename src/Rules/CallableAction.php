@@ -2,6 +2,7 @@
 
 namespace Oxygencms\Menus\Rules;
 
+use Illuminate\Support\Str;
 use Illuminate\Contracts\Validation\Rule;
 
 class CallableAction implements Rule
@@ -30,7 +31,7 @@ class CallableAction implements Rule
     {
         $value = trim($value);
 
-        if ( ! str_contains($value, '@') || substr_count($value, '@') != 1) {
+        if ( ! Str::contains($value, '@') || substr_count($value, '@') != 1) {
             $this->message = "The $attribute format is wrong.";
             return false;
         }

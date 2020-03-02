@@ -2,6 +2,7 @@
 
 namespace Oxygencms\Menus\Rules;
 
+use Illuminate\Support\Str;
 use Illuminate\Contracts\Validation\Rule;
 
 class HasRequiredParameters implements Rule
@@ -62,7 +63,7 @@ class HasRequiredParameters implements Rule
         foreach ($this->route->parameterNames as $parameter_name) {
 
             // skip optional route parameters
-            if ( ! str_contains($this->route->uri, "$parameter_name?}")) {
+            if ( ! Str::contains($this->route->uri, "$parameter_name?}")) {
 
                 $params = json_decode($value, true);
 

@@ -27,7 +27,7 @@ class LinkPolicy extends BasePolicy
     /**
      * Determine whether the user can create links.
      *
-     * @param  \Oxygencms\Users\Models\User  $user
+     * @param  User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -42,7 +42,7 @@ class LinkPolicy extends BasePolicy
     /**
      * Determine whether the user can update the link.
      *
-     * @param  \Oxygencms\Users\Models\User  $user
+     * @param User $user
      * @return mixed
      */
     public function update(User $user)
@@ -57,7 +57,7 @@ class LinkPolicy extends BasePolicy
     /**
      * Determine whether the user can delete the link.
      *
-     * @param  \Oxygencms\Users\Models\User  $user
+     * @param User $user
      * @return mixed
      */
     public function delete(User $user)

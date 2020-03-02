@@ -12,7 +12,7 @@ class MenuController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index()
@@ -29,7 +29,7 @@ class MenuController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
@@ -44,7 +44,7 @@ class MenuController extends Controller
      *
      * @param MenuRequest $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(MenuRequest $request)
@@ -63,7 +63,7 @@ class MenuController extends Controller
      *
      * @param Menu $menu
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Menu $menu)
@@ -83,7 +83,7 @@ class MenuController extends Controller
      * @param MenuRequest $request
      * @param Menu $menu
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(MenuRequest $request, Menu $menu)
@@ -91,7 +91,7 @@ class MenuController extends Controller
         $this->authorize('update', Menu::class);
 
         $menu->update($request->validated());
-        
+
         notification("$menu->model_name successfully updated.");
 
         return redirect()->back();
@@ -101,8 +101,9 @@ class MenuController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Menu $menu
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
     public function destroy(Menu $menu)
     {

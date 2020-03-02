@@ -2,6 +2,8 @@
 
 namespace Oxygencms\Menus\Requests;
 
+use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 use Oxygencms\Menus\Rules\EmptyWhen;
 use Oxygencms\Menus\Rules\RouteExists;
 use Oxygencms\Menus\Rules\CallableAction;
@@ -93,7 +95,7 @@ class LinkRequest extends FormRequest
 
         // nullable if the route does not require any params or if setting a url
         if ($route && ! $route->parameterNames || ! $route && $this->has('url')) {
-            $rules = array_prepend($rules, 'nullable');
+            $rules = Arr::prepend($rules, 'nullable');
         }
 
         return $rules;
@@ -111,7 +113,7 @@ class LinkRequest extends FormRequest
         if ( ! $route) {
             $namespace = app()->getNamespace() . "Http\\Controllers\\";
 
-            if (str_contains($search, 'PageController')) {
+            if (Str::contains($search, 'PageController')) {
                 class_exists($namespace . "PageController")
                     ? $action = $namespace . $search
                     : $action = "Oxygencms\\Pages\\Controllers\\" . $search;
