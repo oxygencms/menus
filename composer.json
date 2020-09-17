@@ -13,9 +13,9 @@
         }
     ],
     "require": {
-        "php": "7.0 - 7.3",
-        "spatie/laravel-menu": "^3.4",
-        "oxygencms/core": "^1.0"
+        "php": "^7.4",
+        "spatie/laravel-menu": "^3.6",
+        "oxygencms/core": "^2.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
