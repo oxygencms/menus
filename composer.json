@@ -15,7 +15,7 @@
     "require": {
         "php": "^7.4",
         "spatie/laravel-menu": "^3.6",
-        "oxygencms/core": "^2.0"
+        "oxygencms/core": "^2.0|dev-master"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
